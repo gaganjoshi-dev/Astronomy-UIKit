@@ -41,7 +41,7 @@ class AstronomyDetailsViewController: UIViewController {
         stackView.axis = .vertical
         stackView.spacing = 8
         stackView.alignment = .top
-        stackView.backgroundColor = .white
+        stackView.backgroundColor = .systemBackground
         stackView.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
@@ -55,9 +55,7 @@ class AstronomyDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationItem.largeTitleDisplayMode = .always
-        
+        navigationItem.largeTitleDisplayMode = .never
         setupView()
     }
     
@@ -88,7 +86,7 @@ class AstronomyDetailsViewController: UIViewController {
         
         title = "Astronomy Details"
         
-        if viewModel.mediaType == "image" {
+        if viewModel.isImage {
             imageView.image = viewModel.lowResImage
             viewModel.delegate = self
             viewModel.downloadHDImage()
@@ -108,7 +106,7 @@ class AstronomyDetailsViewController: UIViewController {
     @objc
     func playVideo()  {
 
-        openYouTubeVideoInSafariViewController(videoURL: viewModel.url ?? "", from: self)
+        openYouTubeVideoInSafariViewController(videoURL: viewModel.url, from: self)
       
     }
     
@@ -123,7 +121,6 @@ class AstronomyDetailsViewController: UIViewController {
 extension AstronomyDetailsViewController: AstronomyDetailsViewModelDelegate {
     func didUpdateHDImage(_ image: UIImage) {
         imageView.image = image
-        print("HD Image Updated")
     }
     
     
