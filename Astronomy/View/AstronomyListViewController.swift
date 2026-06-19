@@ -94,7 +94,7 @@ final class AstronomyListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Astronomies"
-        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.largeTitleDisplayMode = .never
         setupView()
         Task { await viewModel.refresh() }
     }
@@ -102,7 +102,6 @@ final class AstronomyListViewController: UIViewController {
     private func setupView() {
         view.backgroundColor = .systemBackground
 
-        // Pin table edge-to-edge so large titles collapse on scroll.
         view.addAutolayoutSubview(tableView)
         view.addAutolayoutSubview(loadingIndicator)
 
@@ -122,10 +121,6 @@ final class AstronomyListViewController: UIViewController {
         tableView.delegate = self
         tableView.prefetchDataSource = self
         viewModel.delegate = self
-
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshPulled), for: .valueChanged)
-        tableView.refreshControl = refreshControl
 
         updateTableFooter(loading: false, atEnd: false)
     }
@@ -183,13 +178,6 @@ final class AstronomyListViewController: UIViewController {
             tableView.tableFooterView = container
         } else {
             tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 16))
-        }
-    }
-
-    @objc private func refreshPulled() {
-        Task {
-            await viewModel.refresh()
-            tableView.refreshControl?.endRefreshing()
         }
     }
 }

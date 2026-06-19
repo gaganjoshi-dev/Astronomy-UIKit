@@ -33,22 +33,17 @@ final class AppCoordinator {
     private func makeNavigationController(rootViewController: UIViewController) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: rootViewController)
 
-        let standardAppearance = UINavigationBarAppearance()
-        standardAppearance.configureWithOpaqueBackground()
-        standardAppearance.backgroundColor = .systemBlue
-        standardAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        standardAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(red: 0.38, green: 0.64, blue: 0.96, alpha: 1.0)
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.shadowColor = UIColor.black.withAlphaComponent(0.08)
 
-        // Transparent at scroll edge so the large title collapses when the table scrolls.
-        let scrollEdgeAppearance = UINavigationBarAppearance()
-        scrollEdgeAppearance.configureWithTransparentBackground()
-        scrollEdgeAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        scrollEdgeAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-
-        navigationController.navigationBar.standardAppearance = standardAppearance
-        navigationController.navigationBar.compactAppearance = standardAppearance
-        navigationController.navigationBar.scrollEdgeAppearance = scrollEdgeAppearance
-        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationBar.standardAppearance = appearance
+        navigationController.navigationBar.scrollEdgeAppearance = appearance
+        navigationController.navigationBar.compactAppearance = appearance
+        navigationController.navigationBar.prefersLargeTitles = false
+        navigationController.navigationBar.isTranslucent = false
         navigationController.navigationBar.tintColor = .white
 
         return navigationController

@@ -17,11 +17,15 @@ final class AstronomyDetailsViewModel {
 
     weak var delegate: AstronomyDetailsViewModelDelegate?
 
+    var title: String { astronomy.title }
+    var date: String { astronomy.date }
+    var copyright: String? { astronomy.copyright }
     var descriptionText: String { astronomy.explanation }
     var lowResImage: UIImage? { astronomy.image }
     var mediaType: String { astronomy.mediaType }
     var url: String { astronomy.url }
     var isImage: Bool { astronomy.isImage }
+    var hasHDURL: Bool { astronomy.hdurl != nil }
 
     init(astronomy: Astronomy, imageLoader: ImageLoader = .shared) {
         self.astronomy = astronomy
