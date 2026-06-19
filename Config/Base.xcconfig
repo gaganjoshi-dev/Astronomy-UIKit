@@ -1,2 +1,3 @@
-// NASA APOD API key — replace with your key from https://api.nasa.gov
+// NASA APOD API key — override locally in Config/Secrets.xcconfig (gitignored).
 NASA_API_KEY = DEMO_KEY
+#include? "Secrets.xcconfig"

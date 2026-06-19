@@ -23,12 +23,17 @@ final class AstronomyRowView: UIView {
         return label
     }()
 
+    private enum Placeholder {
+        static let symbol = UIImage.SymbolConfiguration(pointSize: 28, weight: .light)
+    }
+
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 8
         imageView.clipsToBounds = true
-        imageView.image = UIImage(systemName: "photo")
+        imageView.tintColor = .tertiaryLabel
+        imageView.backgroundColor = .secondarySystemGroupedBackground
         return imageView
     }()
 
@@ -61,16 +66,28 @@ final class AstronomyRowView: UIView {
         detailLabel.text = astronomy.date
 
         if let image = astronomy.image {
+            imageView.contentMode = .scaleAspectFill
+            imageView.backgroundColor = .clear
+            imageView.tintColor = nil
             imageView.image = image
         } else if astronomy.isImage {
-            imageView.image = UIImage(systemName: "photo")
+            imageView.contentMode = .center
+            imageView.backgroundColor = .secondarySystemGroupedBackground
+            imageView.tintColor = .tertiaryLabel
+            imageView.image = UIImage(systemName: "photo", withConfiguration: Placeholder.symbol)
         } else {
-            imageView.image = UIImage(systemName: "video.square")
+            imageView.contentMode = .center
+            imageView.backgroundColor = .secondarySystemGroupedBackground
+            imageView.tintColor = .tertiaryLabel
+            imageView.image = UIImage(systemName: "video", withConfiguration: Placeholder.symbol)
         }
     }
 
     func resetImage() {
-        imageView.image = UIImage(systemName: "photo")
+        imageView.contentMode = .center
+        imageView.backgroundColor = .secondarySystemGroupedBackground
+        imageView.tintColor = .tertiaryLabel
+        imageView.image = UIImage(systemName: "photo", withConfiguration: Placeholder.symbol)
     }
 
     private func setupViews() {
@@ -113,6 +130,9 @@ final class AstronomyRowCell: UITableViewCell {
     }
 
     func setImage(_ image: UIImage?) {
+        astronomyView.imageView.contentMode = .scaleAspectFill
+        astronomyView.imageView.backgroundColor = .clear
+        astronomyView.imageView.tintColor = nil
         astronomyView.imageView.image = image
     }
 
