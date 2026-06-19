@@ -1,0 +1,40 @@
+Copyright (c) 2024-2026 Gagan Joshi. All Rights Reserved.
+
+PROPRIETARY SOFTWARE LICENSE
+
+This software and associated documentation files (the "Software") are the
+exclusive property of Gagan Joshi.
+
+PERMITTED USE
+You may view and run this Software for personal, non-commercial evaluation
+only with the express permission of Gagan Joshi.
+
+RESTRICTIONS
+Without prior written permission from Gagan Joshi, you may NOT:
+
+  - Copy, reproduce, or duplicate any part of this Software
+  - Distribute, publish, sublicense, or sell this Software
+  - Modify, adapt, or create derivative works based on this Software
+  - Use this Software for any commercial purpose
+  - Incorporate this Software into other products or services
+
+NASA API & THIRD-PARTY DATA
+This application retrieves data from the NASA Astronomy Picture of the Day
+(APOD) API (https://api.nasa.gov). NASA imagery, video, and related content
+are provided by NASA and are subject to NASA's terms of use and media
+guidelines. See: https://www.nasa.gov/nasa-brand-center/images-and-media/
+
+NASA data and media are separate from this Software's source code. Use of
+NASA content must comply with NASA's applicable policies. Gagan Joshi does
+not claim ownership of NASA-provided data or imagery.
+
+DISCLAIMER
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+GAGAN JOSHI BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING
+FROM THE USE OF THIS SOFTWARE.
+
+CONTACT
+For licensing inquiries or permission requests, contact the copyright holder:
+Gagan Joshi
