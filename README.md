@@ -2,13 +2,18 @@
 
 A UIKit app for browsing [NASA Astronomy Picture of the Day (APOD)](https://apod.nasa.gov/apod/astropix.html). It loads up to **100 days** of history in a paginated, Facebook-style feed with network-first loading and Core Data offline fallback.
 
+## Screenshots
+
+| Feed | Detail |
+|------|--------|
+| ![Feed list](docs/screenshots/feed.png) | ![Detail screen](docs/screenshots/detail.png) |
+
 ## Features
 
 - Infinite scroll feed (15-day pages)
 - Image and video APOD support
 - HD image upgrade on the detail screen
 - Offline mode with cached metadata
-- Pull-to-refresh
 - Structured logging (`os.Logger`)
 
 ## Requirements
@@ -59,7 +64,7 @@ Astronomy/
 └── Extensions/
 
 Config/                     # Build configuration & API keys
-docs/                       # Project documentation
+docs/                       # Project documentation & screenshots
 AstronomyTests/             # Unit tests
 ```
 
